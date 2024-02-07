@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+body{
+  background: #F4F4F4;
+}
+/* ------------------------------------------------------------ */
+/* Common CSS */
+/* ------------------------------------------------------------ */
+
+.heading {
+  font-family: Montserrat;
+  text-align: center;
+  color: #224677;
+  font-weight: 800;
+}
+
+/* ------------------------------------------------------------ */
+/* Header */
+/* ------------------------------------------------------------ */
+.headerSection {
+  position: absolute !important;
+  left: 45%;
+  transform: translateX(-45%);
+  font-weight: 400;
+}
+.logo {
+  width: 50%;
+  float: right;
+}
+.headerBtn {
+  background-color: #5349cc;
+}
+
+/* ------------------------------------------------------------ */
+/* Banner */
+/* ------------------------------------------------------------ */
+.bannerCard {
+  background: #5349cc;
+  display: flex;
+  color: white;
+  text-align: center;
+  border: 0;
+}
+.bannerCardContainer {
+  position: relative;
+  top: -45px;
+}
+.bannerCard h6 {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+/* ------------------------------------------------------------ */
+/* Footer */
+/* ------------------------------------------------------------ */
+
+.footerLine {
+  background: #5349cc;
+  height: 8px;
+}
+.footerLineIcon {
+  float: right;
+}
+.sviFooter {
+  background: #383838;
+}
+.footerSocialIcons {
+  background: white;
+  padding: 11px;
+  border-radius: 20px;
+  height: 40px;
+}
+.footerSocialIcons:hover {
+  background: #5349cc;
+  color: white;
+}
+.footerBack{
+  background-image: url('../../../website/assets/images/footerBack.png');
+   background-repeat: no-repeat;
+  background-position: bottom;
+  height: 300px;
+  border-radius: 10%;
+}
