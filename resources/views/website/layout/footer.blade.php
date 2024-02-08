@@ -6,7 +6,7 @@
       class="d-flex justify-content-center align-items-center justify-content-lg-between footerLine"
     ></section>
     <section>
-      <footer class="sviFooter p-5">
+      <footer class="sviFooter p-md-5 p-3">
         <div class="container-fluid">
           <div class="row text-white justify-content-center">
             <div class="col-lg-3 col-md-3 col-sm-12 col-12">
