@@ -21,6 +21,7 @@
         }
     }
 
+   
 }
 
 .nav{
@@ -48,6 +49,14 @@
 .product-name{
     color:#23569E;
     font-size:32px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-product h3{
+    color:#000000;
+    font-size:20px;
     font-weight: 700;
     display: flex;
     justify-content: center;

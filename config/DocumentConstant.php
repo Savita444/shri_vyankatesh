@@ -11,9 +11,13 @@ return [
     'SLIDER_DELETE'	         => '/all_web_data/images/home/slides/',
     'SLIDER_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/home/slides/',
 
-    'COURSES_OFFERED_ADD'	         => "/all_web_data/images/home/coursesOffered/",
-    'COURSES_OFFERED_DELETE'	         => '/all_web_data/images/home/coursesOffered/',
-    'COURSES_OFFERED_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/home/coursesOffered/',
+    'ABOUTUS_ADD'	         => "/all_web_data/images/home/aboutus/",
+    'ABOUTUS_DELETE'	         => '/all_web_data/images/home/aboutus/',
+    'ABOUTUS_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/home/aboutus/',
+    
+    'PRODUCT_ADD'	         => "/all_web_data/images/home/product/",
+    'PRODUCT_DELETE'	         => '/all_web_data/images/home/product/',
+    'PRODUCT_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/home/product/',
     
     'TESTIMONIAL_ADD'	         => "/all_web_data/images/home/testimonial/",
     'TESTIMONIAL_DELETE'	         => '/all_web_data/images/home/testimonial/',
@@ -23,9 +27,9 @@ return [
     'UPCOMING_COURSES_DELETE'	         => '/all_web_data/images/home/upcomingcourses/',
     'UPCOMING_COURSES_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/home/upcomingcourses/',
 
-    'GALLERY_ADD'	         => "/all_web_data/images/gallery/",
-    'GALLERY_DELETE'	         => '/all_web_data/images/gallery/',
-    'GALLERY_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/gallery/',
+    'MEDIA_ADD'	         => "/all_web_data/images/media/",
+    'MEDIA_DELETE'	         => '/all_web_data/images/media/',
+    'MEDIA_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/media/',
 
     'GALLERY_MAIN_ADD'	         => "/all_web_data/images/gallerymain/",
     'GALLERY_MAIN_DELETE'	         => '/all_web_data/images/gallerymain/',

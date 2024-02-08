@@ -54,7 +54,7 @@
            <div class="tab-content" id="v-pills-tabContent">
              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                <div class="">
-                 <h3>Heat Exchangers 
+                 <h3 class="">Heat Exchangers 
                    (Condensers, Reboilers, Coolers) for Hostile Applications</h3>
                    <p>SVI CarbonPvt Ltd. has established its own sound technological and infrastructural baseto manufacture Graphite Heat Exchanger with various kinds of impregnation. OurHeat Exchangers work have provided satisfactory service for critical andhostile applications like Caustic solution, Sulfuric acid, Hydrochloric acid,Metal salts, Chlorobenzenes, etc.</p>
                </div>

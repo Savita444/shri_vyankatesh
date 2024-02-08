@@ -58,19 +58,10 @@
             </a>
             <div class="collapse" id="home">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link active"
-                            href="{{ route('list-slide') }}">Slider</a></li>
                     <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                            href="{{ route('list-courses-offered') }}">Courses Offered</a></li>
-                    {{-- <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('list-fesspayment-form') }}">Sub Slider</a> --}}
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                            href="{{ route('list-marquee') }}">Marquee</a>
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                            href="{{ route('list-upcoming-courses') }}">Upcoming Courses</a>
-                        {{-- <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('list-fesspayment-form') }}"> Reasons Choose Upadhye Classes</a> --}}
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                            href="{{ route('list-testimonial') }}">Testimonial </a>
-                    </li>
+                            href="{{ route('list-aboutus') }}">About Us</a></li>
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-product') }}">Product</a></li>
                 </ul>
             </div>
         </li>
@@ -146,11 +137,11 @@
                 </ul>
             </div>
         </li>
-        <li class="{{request()->is('list-gallery*') 
+        <li class="{{request()->is('list-media*') 
             ? 'nav-item active' : 'nav-item' }}">
-            <a class="nav-link" href="{{ route('list-gallery') }}">
+            <a class="nav-link" href="{{ route('list-media') }}">
                 <i class="fas fa-newspaper menu-icon"></i>
-                <span class="menu-title">Gallery</span>
+                <span class="menu-title">Media</span>
             </a>
         </li>
         <li class="{{request()->is('list-contactus-form*') 
