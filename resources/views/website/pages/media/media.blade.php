@@ -7,8 +7,8 @@
 
     <section>
         <div class="container-fluid m-0 p-0">
-          <video height="450" width="100%" controls>
-            <source src="/Assets/sampleVideo.mp4" type="video/mp4" />
+          <video class="mediaVideo" controls>
+            <source src="{{ asset('website/assets/images/home/sampleVideo.mp4')}}" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -24,8 +24,6 @@
   
       <section class="my-3">
         <div class="container">
-    
-          
           <div class="card border-0 py-3 px-3 mediaCard">
             <h4 class="heading text-start mx-md-4 mt-3">Media</h4>
             <div class="row justify-content-center">

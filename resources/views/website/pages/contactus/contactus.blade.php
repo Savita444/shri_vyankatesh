@@ -179,7 +179,7 @@
       <section class="py-5">
         <div class="container">
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-4 col-md-4 col-12 my-2">
               <div class="card unitCard mx-auto" style="width: 90%">
                 <img src="{{ asset('website/assets/images/contact/unit1.png')}}" alt="..." />
                 <div class="card-body cardContactUnit">
@@ -192,7 +192,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-4 col-md-4 col-12 my-2">
               <div class="card unitCard mx-auto" style="width: 90%">
                 <img src="{{ asset('website/assets/images/contact/unit1.png')}}" alt="..." />
                 <div class="card-body cardContactUnit">
@@ -205,7 +205,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-4 col-md-4 col-12 my-2">
               <div class="card unitCard mx-auto" style="width: 90%">
                 <img src="{{ asset('website/assets/images/contact/unit1.png')}}" alt="..." />
                 <div class="card-body cardContactUnit">

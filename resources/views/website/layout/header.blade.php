@@ -11,7 +11,7 @@
 />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link href="{{ asset('website/assets/scss/home.scss') }}" rel="stylesheet">
+    <link href="{{ asset('website/assets/scss/home.css') }}" rel="stylesheet">
    <link href="{{ asset('website/assets/scss/common.scss') }}" rel="stylesheet">
    <link href="{{ asset('website/assets/scss/about.scss') }}" rel="stylesheet">
    <link href="{{ asset('website/assets/scss/contact.scss') }}" rel="stylesheet">

@@ -10,10 +10,10 @@
         <div class="container">
           <div class="row">
             <h4 class="text-center HomeAbout heading">About Us</h4>
-            <div class="col-lg-5 mx-auto">
+            <div class="col-lg-5 mx-auto HomeAboutRow">
               <div class="aboutVideoMain">
                 <div class="aboutVideo">
-                  <video height="250" width="350" controls>
+                  <video class="videoSize" controls>
                     <source src="{{ asset('website/assets/images/home/aboutVideo.mp4') }}" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -42,7 +42,7 @@
                 experience in the graphite equipment industry.
               </p>
             </div>
-            <div class="text-end">
+            <div class="HomeAboutBtnDiv">
               <button class="btn HomeAboutBtn">
                 <a href="{{ asset('website/assets/images/home/about.html')}}" class="text-decoration-none text-white">View More </a>
               </button>
@@ -61,7 +61,7 @@
       <section class="bg-white py-3">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-5 text-end">
+            <div class="col-lg-5 text-center text-sm-center text-md-end">
               <div class="productImg">
                 <img
                   src="{{ asset('website/assets/images/product/ghmte.png') }}"
@@ -73,7 +73,7 @@
             <div class="col-lg-7 d-flex align-items-center">
               <div class="productCard">
                 <h4
-                  class="heading text-start"
+                  class="heading text-md-start text-sm-center"
                   style="color: #1e4f9c; font-weight: bold"
                 >
                   Product
@@ -106,7 +106,7 @@
       <!-- ------------------------------------------------------------------------------------>
       <!-- Square Banner Section Starts Here -->
       <!-- ------------------------------------------------------------------------------------>
-      <section class="">
+      <section class="d-none d-sm-none d-md-block d-lg-block">
         <div class="container-fluid p-0">
           <img src="{{ asset('website/assets/images/aboutus/HomePageBanner.png') }}" alt="" class="img-fluid" />
         </div>
@@ -118,11 +118,11 @@
       <!-- ------------------------------------------------------------------------------------>
       <!-- Home Cards Section Starts Here -->
       <!-- ------------------------------------------------------------------------------------>
-      <section class="my-5">
+      <section class="my-md-5 my-3">
         <div class="container">
           <h4 class="heading">SVICPL’s Core Competencies</h4>
           <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2">
               <div class="card shadow py-1 coreCompCards pt-4 border-0">
                 <img
                   class="w-50 mx-auto"
@@ -134,7 +134,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2">
               <div class="card shadow py-1 coreCompCards pt-4 border-0">
                 <img
                   class="w-50 mx-auto"
@@ -148,7 +148,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2">
               <div class="card shadow py-1 coreCompCards pt-4 border-0">
                 <img
                   class="w-50 mx-auto"
@@ -162,7 +162,7 @@
             </div>
           </div>
           <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2">
               <div class="card shadow py-1 coreCompCards pt-4 border-0">
                 <img
                   class="w-50 mx-auto"
@@ -174,7 +174,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2">
               <div class="card shadow py-1 coreCompCards pt-4 border-0">
                 <img
                   class="w-50 mx-auto"
@@ -186,7 +186,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2">
               <div class="card shadow py-1 coreCompCards pt-4 border-0">
                 <img
                   class="w-50 mx-auto"
@@ -208,9 +208,10 @@
       <!-- ------------------------------------------------------------------------------------>
       <!-- Round Banner Section Starts Here -->
       <!-- ------------------------------------------------------------------------------------>
-      <section class="my-5">
+      <section class="my-md-5 my-3">
         <div class="container">
-          <img src="{{ asset('website/assets/images/home/HomeBanner3.png') }}" alt="" class="img-fluid" />
+          <img src="{{ asset('website/assets/images/home/HomeBanner3.png') }}" alt="" class="img-fluid d-none d-md-block d-lg-block" />
+          <img src="{{ asset('website/assets/images/home/MOBILEHome BANNER3.png') }}" alt="" class="img-fluid d-block d-md-none d-lg-none" />
         </div>
       </section>
       <!-- ------------------------------------------------------------------------------------>
