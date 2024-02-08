@@ -115,8 +115,17 @@ Route::group(['middleware' => ['admin']], function () {
 
 
 
+    // ===============Our Products By Nandan 
 
 
+    Route::get('/list-our-products', ['as' => 'list-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@index']);
+    Route::get('/add-our-products', ['as' => 'add-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@add']);
+    Route::post('/add-our-products', ['as' => 'add-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@store']);
+    Route::get('/edit-our-products/{edit_id}', ['as' => 'edit-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@edit']);
+    Route::post('/update-our-products', ['as' => 'update-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@update']);
+    Route::post('/show-our-products', ['as' => 'show-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@show']);
+    Route::post('/delete-our-products', ['as' => 'delete-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@destroy']);
+    Route::post('/update-active-our-products', ['as' => 'update-active-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@updateOne']);
 
 
 
