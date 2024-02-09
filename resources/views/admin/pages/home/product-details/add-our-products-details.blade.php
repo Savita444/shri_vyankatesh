@@ -68,21 +68,10 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group" id="summernote_id">
                         <label for="description">Short Description <span class="red-text">*</span></label>
-                        <textarea class="form-control" name="short_description" id="short_description"
+                        <textarea class="form-control" name="short_description" id="description"
                             placeholder="Enter Short Content">{{ old('short_description') }}</textarea>
                         @if ($errors->has('short_description'))
                         <span class="red-text">{{ $errors->first('short_description') }}</span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-group" id="summernote_id">
-                        <label for="description">Long Description <span class="red-text">*</span></label>
-                        <textarea class="form-control" name="long_description" id="long_description"
-                            placeholder="Enter Long Content">{{ old('long_description') }}</textarea>
-                        @if ($errors->has('long_description'))
-                        <span class="red-text">{{ $errors->first('long_description') }}</span>
                         @endif
                     </div>
                 </div>
@@ -150,9 +139,6 @@
                 short_description: {
                     required: true,
                 },
-                long_description: {
-                    required: true,
-                },
                 image: {
                     required: true,
                     fileExtension: ["jpg", "jpeg", "png"],
@@ -166,9 +152,6 @@
                     spcenotallow: "Enter Some Title",
                 },
                 short_description: {
-                    required: "Please Enter the Description",
-                },
-                long_description: {
                     required: "Please Enter the Description",
                 },
                 image: {

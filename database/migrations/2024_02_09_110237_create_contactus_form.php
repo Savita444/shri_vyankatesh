@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_details', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('product_id');
-            $table->text('title');
-            $table->text('short_description');
-            $table->text('image')->default(NULL);
+        Schema::create('contactus_form', function (Blueprint $table) {
+            $table->id();
+            $table->string('full_name');
+            $table->string('email');
+            $table->string('mobile_number');
+            $table->text('subject');
+            $table->text('message');
+            $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
-
-        
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_details');
+        Schema::dropIfExists('contactus_form');
     }
 };

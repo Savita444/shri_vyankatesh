@@ -3,7 +3,7 @@ namespace App\Http\Services\Admin\Home;
 use App\Http\Repository\Admin\Home\ProductDetailsRepository;
 use Carbon\Carbon;
 use App\Models\ {
-    ServiceDetails
+    ProductDetails
     };
 
 use Config;
@@ -68,7 +68,7 @@ class ProductDetailsServices
                 }                
                 // $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_image.' . $request->image->extension();
                 uploadImage($request, 'image', $path, $englishImageName);
-                $slide_data = ServiceDetails::find($return_data['last_insert_id']);
+                $slide_data = ProductDetails::find($return_data['last_insert_id']);
                 $slide_data->image = $englishImageName;
                 $slide_data->save();
             }          
