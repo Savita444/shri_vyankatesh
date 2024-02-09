@@ -59,6 +59,8 @@
           <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('list-aboutus') }}">About Us</a>
           </li>
           <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('list-product') }}">Product</a></li>
+          <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('list-our-products-details') }}"> Our Product Details</a></li>
+
         </ul>
       </div>
     </li>
