@@ -6,13 +6,13 @@ use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	CourseModel
+	OurProductModel
 };
 
-class CourseRepository{
+class OurProductRepository{
     public function getAll(){
         try {
-            $data_output = CourseModel::orderBy('updated_at', 'desc')->get();
+            $data_output = OurProductModel::orderBy('updated_at', 'desc')->get();
             return $data_output;
         } catch (\Exception $e) {
             return $e;
@@ -22,8 +22,8 @@ class CourseRepository{
 
 	public function addAll($request){
         try {
-            $incidenttype_data = new CourseModel();
-            $incidenttype_data->service_name  = $request['service_name'];
+            $incidenttype_data = new OurProductModel();
+            $incidenttype_data->product_name  = $request['product_name'];
           
             $incidenttype_data->save();       
                 
@@ -38,7 +38,7 @@ class CourseRepository{
     }
     public function getById($id){
         try {
-            $incidenttype = CourseModel::find($id);
+            $incidenttype = OurProductModel::find($id);
             if ($incidenttype) {
                 return $incidenttype;
             } else {
@@ -47,34 +47,34 @@ class CourseRepository{
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to get by Id Course Type.',
+                'msg' => 'Failed to get by Id Solution Type.',
                 'status' => 'error'
             ];
         }
     }
     public function updateAll($request){
         try {
-            $incidenttype_data = CourseModel::find($request->id);
+            $incidenttype_data = OurProductModel::find($request->id);
             
             if (!$incidenttype_data) {
                 return [
-                    'msg' => 'Course data not found.',
+                    'msg' => 'Solution data not found.',
                     'status' => 'error'
                 ];
             }
         // Store the previous image names
-            $incidenttype_data->service_name = $request['service_name'];
+            $incidenttype_data->product_name = $request['product_name'];
             // $incidenttype_data->url = $request['url'];
             $incidenttype_data->save();        
         
             return [
-                'msg' => 'Course Type data updated successfully.',
+                'msg' => 'Solution Type data updated successfully.',
                 'status' => 'success'
             ];
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to update Course Type data.',
+                'msg' => 'Failed to update Solution Type data.',
                 'status' => 'error'
             ];
         }
@@ -82,7 +82,7 @@ class CourseRepository{
 
     public function deleteById($id) {
         try {
-            $incidenttype = CourseModel::find($id);
+            $incidenttype = OurProductModel::find($id);
             if ($incidenttype) {
                 // Delete the images from the storage folder
                 Storage::delete([
@@ -104,11 +104,22 @@ class CourseRepository{
     }
     public function updateOne($request){
         try {
-            $slide = CourseModel::find($request); 
+            $slide = OurProductModel::find($request); 
             if ($slide) {
-                $is_active = $slide->is_active === 1 ? 0 : 1;
-                $slide->is_active = $is_active;
-                $slide->save();
+                $active =  $slide->is_active;
+                // dd($active);
+                if($active == '1') {
+                    OurProductModel::where('id',$request)
+                    ->update([
+                        'is_active' => '0' 
+                    ]); 
+                } else {
+                    OurProductModel::where('id',$request)
+                    ->update([
+                        'is_active' => '1'
+                    ]); 
+                }
+               
 
                 return [
                     'msg' => 'Slide updated successfully.',

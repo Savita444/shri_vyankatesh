@@ -5,17 +5,14 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    Courses
-                  
-                        <a href="{{ route('add-courses') }}" class="btn btn-sm btn-primary ml-3">+
+                    Product Categories
+                        <a href="{{ route('add-our-products') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
-                
-
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-courses') }}">Master</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> courses</li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-services') }}">Master</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Services</li>
                     </ol>
                 </nav>
             </div>
@@ -40,7 +37,7 @@
                                                 @foreach ($incidenttype_data as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ strip_tags($item->service_name) }}</td>
+                                                        <td>{{ strip_tags($item->product_name) }}</td>
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"
@@ -56,7 +53,7 @@
                                                             <div class="d-flex">
                                                                
                                                                     <a
-                                                                        href="{{ route('edit-courses', base64_encode($item->id)) }}"
+                                                                        href="{{ route('edit-our-products', base64_encode($item->id)) }}"
                                                                         class="btn btn-sm btn-outline-primary m-1"
                                                                         title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                              
@@ -84,15 +81,15 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-courses') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-our-products') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-courses') }}" id="showform">
+        <form method="POST" action="{{ url('/show-our-products') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/update-active-courses') }}" id="activeform">
+        <form method="POST" action="{{ url('/update-active-our-products') }}" id="activeform">
             @csrf
             <input type="hidden" name="active_id" id="active_id" value="">
         </form>

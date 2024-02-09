@@ -18872,7 +18872,7 @@ input:focus {
 }
 
 .navbar.default-layout-navbar .navbar-brand-wrapper .brand-logo-mini img {
-  width: calc(80px - 30px);
+  /* width: calc(80px - 30px); */
   max-width: 100%;
   margin: auto;
 }
@@ -29174,7 +29174,7 @@ div.tagsinput span.tag a {
 }
 
 .auth .brand-logo img {
-  width: 320px;
+  width: 190px;
 }
 
 .auth form .form-group {

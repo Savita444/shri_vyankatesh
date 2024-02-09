@@ -1,13 +1,13 @@
 <?php
 namespace App\Http\Services\Admin\Master;
 
-use App\Http\Repository\Admin\Master\CourseRepository;
+use App\Http\Repository\Admin\Master\OurProductRepository;
 
 use App\LocationAddress;
 use Carbon\Carbon;
 
 
-class CourseServices{
+class OurProductServices{
 
 	protected $repo;
 
@@ -15,7 +15,7 @@ class CourseServices{
      * TopicService constructor.
      */
     public function __construct(){
-        $this->repo = new CourseRepository();
+        $this->repo = new OurProductRepository();
     }
     public function getAll(){
         try {
@@ -29,9 +29,9 @@ class CourseServices{
         try {
             $add_Incidenttype = $this->repo->addAll($request);
             if ($add_Incidenttype) {
-                return ['status' => 'success', 'msg' => 'Course Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Services Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Course Not Added.'];
+                return ['status' => 'error', 'msg' => 'Services Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -50,9 +50,9 @@ class CourseServices{
             $update_Incidenttype = $this->repo->updateAll($request);
             // dd($update_Incidenttype);
             if ($update_Incidenttype) {
-                return ['status' => 'success', 'msg' => 'Course Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Services Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Course Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Services Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

@@ -33,16 +33,6 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/website-contact', ['as' => 'website-contact', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateProfile']);
 
-
-    Route::get('/list-location-address', ['as' => 'list-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@index']);
-    Route::get('/add-location-address', ['as' => 'add-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@add']);
-    Route::post('/add-location-address', ['as' => 'add-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@store']);
-    Route::get('/edit-location-address/{edit_id}', ['as' => 'edit-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@edit']);
-    Route::post('/update-location-address', ['as' => 'update-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@update']);
-    Route::post('/show-location-address', ['as' => 'show-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@show']);
-    Route::post('/delete-location-address', ['as' => 'delete-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@destroy']);
-    Route::post('/update-one-location-address', ['as' => 'update-one-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@updateOne']);
-
 // =============About Us============
     Route::get('/list-aboutus', ['as' => 'list-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@index']);
     Route::get('/add-aboutus', ['as' => 'add-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@add']);
@@ -132,7 +122,30 @@ Route::group(['middleware' => ['admin']], function () {
 
 
 
+    // ===============Our Products By Nandan 
 
+
+    Route::get('/list-our-products', ['as' => 'list-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@index']);
+    Route::get('/add-our-products', ['as' => 'add-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@add']);
+    Route::post('/add-our-products', ['as' => 'add-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@store']);
+    Route::get('/edit-our-products/{edit_id}', ['as' => 'edit-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@edit']);
+    Route::post('/update-our-products', ['as' => 'update-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@update']);
+    Route::post('/show-our-products', ['as' => 'show-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@show']);
+    Route::post('/delete-our-products', ['as' => 'delete-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@destroy']);
+    Route::post('/update-active-our-products', ['as' => 'update-active-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@updateOne']);
+
+
+// ===============Our Products Details By Nandan 
+
+
+    Route::get('/list-our-products-details', ['as' => 'list-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@index']);
+    Route::get('/add-our-products-details', ['as' => 'add-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@add']);
+    Route::post('/add-our-products-details', ['as' => 'add-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@store']);
+    Route::get('/edit-our-products-details/{edit_id}', ['as' => 'edit-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@edit']);
+    Route::post('/update-our-products-details', ['as' => 'update-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@update']);
+    Route::post('/show-our-products-details', ['as' => 'show-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@show']);
+    Route::post('/delete-our-products-details', ['as' => 'delete-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@destroy']);
+    Route::post('/update-active-our-products-details', ['as' => 'update-active-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@updateOne']);
 
 
 

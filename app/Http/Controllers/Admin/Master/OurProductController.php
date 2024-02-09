@@ -4,48 +4,48 @@ namespace App\Http\Controllers\Admin\Master;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\MarqueeTab;
-use App\Http\Services\Admin\Master\MarqueeTabServices;
+use App\Models\SolutionModel;
+use App\Http\Services\Admin\Master\OurProductServices;
 use Validator;
 use Illuminate\Validation\Rule;
-class MarqueeTabController extends Controller
-{
 
-   public function __construct()
+class OurProductController extends Controller
+{
+    public function __construct()
     {
-        $this->service = new MarqueeTabServices();
+        $this->service = new OurProductServices();
     }
     public function index()
     {
         try {
             $incidenttype_data = $this->service->getAll();
-            return view('admin.pages.master.marquee-tab.list-marquee-tab', compact('incidenttype_data'));
+            return view('admin.pages.master.our-products.list-product-category', compact('incidenttype_data'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.master.marquee-tab.add-marquee-tab');
+        return view('admin.pages.master.our-products.add-product-category');
     }
 
     public function store(Request $request) {
+
         $rules = [
-            'title' => 'required|unique:marquee_tab|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'product_name' => 'required|max:255',
+            // |unique:product_name|regex:/^[a-zA-Z\s]+$/u|max:255',
          ];
         $messages = [   
-            'title'       =>  'Please enter title.',
-            'title.regex' => 'Please  enter text only.',
-            'title.unique' => 'Title already exist.',
-            'title.max'   => 'Please  enter text length upto 255 character only.',
-                       
+            'product_name'       =>  'Please enter title.',
+            // 'product_name.regex' => 'Please  enter text only.',
+            // 'product_name.unique' => 'Title already exist.',
         ];
 
         try {
             $validation = Validator::make($request->all(),$rules,$messages);
             if($validation->fails() )
             {
-                return redirect('add-marquee-tab')
+                return redirect('add-our-products')
                     ->withInput()
                     ->withErrors($validation);
             }
@@ -58,16 +58,16 @@ class MarqueeTabController extends Controller
                     $msg = $add_incidenttype_data['msg'];
                     $status = $add_incidenttype_data['status'];
                     if($status=='success') {
-                        return redirect('list-marquee-tab')->with(compact('msg','status'));
+                        return redirect('list-our-products')->with(compact('msg','status'));
                     }
                     else {
-                        return redirect('add-marquee-tab')->withInput()->with(compact('msg','status'));
+                        return redirect('add-our-products')->withInput()->with(compact('msg','status'));
                     }
                 }
 
             }
         } catch (Exception $e) {
-            return redirect('add-marquee-tab')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+            return redirect('add-our-products')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
     
@@ -75,40 +75,40 @@ class MarqueeTabController extends Controller
     {
         $edit_data_id = base64_decode($request->edit_id);
         $incidenttype_data = $this->service->getById($edit_data_id);
-        return view('admin.pages.master.marquee-tab.edit-marquee-tab', compact('incidenttype_data'));
+        return view('admin.pages.master.our-products.edit-product-category', compact('incidenttype_data'));
    
     }
+   
+
     public function update(Request $request)
 {
     $id = $request->input('id'); // Assuming the 'id' value is present in the request
     $rules = [
-        'title' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('marquee_tab', 'title')->ignore($id, 'id')],
+        'product_name' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('our_product', 'product_name')->ignore($id, 'id')],
     ];
 
     $messages = [
-        'title.required' => 'Please enter an title.',
-        'title.regex' => 'Please  enter text only.',
-        'title.max' => 'Please enter an  title with a maximum of 255 characters.',
-        'title.unique' => 'The title already exists.',
-       
+        'product_name.required' => 'Please enter an title.',
+        'product_name.regex' => 'Please  enter text only.',
+        'product_name.max' => 'Please enter an  title with a maximum of 255 characters.',
+        'product_name.unique' => 'The title already exists.',
     ];
 
     try {
         $validation = Validator::make($request->all(), $rules, $messages);
-
         if ($validation->fails()) {
             return redirect()->back()
                 ->withInput()
                 ->withErrors($validation);
         } else {
             $update_incidenttype_data = $this->service->updateAll($request);
-
+            // dd($update_incidenttype_data);
             if ($update_incidenttype_data) {
                 $msg = $update_incidenttype_data['msg'];
                 $status = $update_incidenttype_data['status'];
 
                 if ($status == 'success') {
-                    return redirect('list-marquee-tab')->with(compact('msg', 'status'));
+                    return redirect('list-our-products')->with(compact('msg', 'status'));
                 } else {
                     return redirect()->back()
                         ->withInput()
@@ -127,7 +127,7 @@ class MarqueeTabController extends Controller
     {
         try {
             $incidenttype_data = $this->service->getById($request->show_id);
-            return view('admin.pages.master.marquee-tab.show-marquee-tab', compact('incidenttype_data'));
+            return view('admin.pages.master.our-products.show-product-category', compact('incidenttype_data'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -136,7 +136,7 @@ class MarqueeTabController extends Controller
         try {
             $active_id = $request->active_id;
         $result = $this->service->updateOne($active_id);
-            return redirect('list-marquee-tab')->with('flash_message', 'Updated!');  
+            return redirect('list-our-products')->with('flash_message', 'Updated!');  
         } catch (\Exception $e) {
             return $e;
         }
@@ -149,7 +149,7 @@ class MarqueeTabController extends Controller
                 $msg = $incidenttype_data['msg'];
                 $status = $incidenttype_data['status'];
                 if ($status == 'success') {
-                    return redirect('list-marquee-tab')->with(compact('msg', 'status'));
+                    return redirect('list-our-products')->with(compact('msg', 'status'));
                 } else {
                     return redirect()->back()
                         ->withInput()

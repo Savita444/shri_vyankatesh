@@ -5,12 +5,12 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                Update Courses
+                Update Products Categories
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-courses') }}">Master</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update Courses
+                        <li class="breadcrumb-item"><a href="{{ url('list-our-products') }}">Master</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Update Products Categories
                         </li>
                     </ol>
                 </nav>
@@ -19,18 +19,18 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action="{{ route('update-courses') }}" method="post"
+                            <form class="forms-sample" action="{{ route('update-our-products') }}" method="post"
                                 id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="name">Name</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control mb-2" name="service_name" id="name"
+                                            <input class="form-control mb-2" name="product_name" id="name"
                                                 placeholder="Enter the Name"
-                                                value="@if (old('service_name')) {{ old('service_name') }}@else{{ $incidenttype_data->service_name }} @endif">
+                                                value="@if (old('product_name')) {{ old('product_name') }}@else{{ $incidenttype_data->product_name }} @endif">
                                             @if ($errors->has('name'))
-                                                <span class="red-text"><?php echo $errors->first('service_name', ':message'); ?></span>
+                                                <span class="red-text"><?php echo $errors->first('product_name', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                         <button type="submit" class="btn btn-sm btn-success" id="submitButton">Save &amp;
                                             Update</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
-                                        <span><a href="{{ route('list-courses') }}"
+                                        <span><a href="{{ route('list-our-products') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
