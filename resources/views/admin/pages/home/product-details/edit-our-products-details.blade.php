@@ -1,124 +1,121 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <div class="main-panel">
-        <div class="content-wrapper mt-6">
-            <div class="page-header">
-                <h3 class="page-title">
-                    Our Service
-                </h3>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('list-service-details') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update Our Service</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="row">
-                <div class="col-12 grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <form class="forms-sample" action="{{ route('update-service-details') }}" method="post"
-                                id="regForm" enctype="multipart/form-data">
-                                @csrf
-                                <div class="row">
+<div class="main-panel">
+  <div class="content-wrapper mt-6">
+    <div class="page-header">
+      <h3 class="page-title">
+        Our Product
+      </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('list-our-products-details') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"> Product Details</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <form class="forms-sample" action="{{ route('update-our-products-details') }}" method="post" id="regForm"
+              enctype="multipart/form-data">
+              @csrf
+              <div class="row">
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="Service">Service:</label> &nbsp<span class="red-text">*</span>
-                                            <select class="form-control mb-2" name="service_id" id="service_id">
-                                                <option value="" default>Select Service</option>
-                                                @foreach ($data as $service)
-                                                    <option value="{{ $service->id }}"
-                                                        @if ($editData->service_id == $service->id) {{ 'selected' }} @endif>
-                                                        {{ $service->service_name }}
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label for="Service">Product:</label> &nbsp<span class="red-text">*</span>
+                    <select class="form-control mb-2" name="product_id" id="product_id">
+                      <option value="" default>Select Product</option>
+                      @foreach ($data as $service)
+                      <option value="{{ $service->id }}" @if ($editData->product_id == $service->id) {{ 'selected' }}
+                        @endif>
+                        {{ $service->product_name }}
 
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            @if ($errors->has('title'))
-                                                <span class="red-text">
-                                                    <?php echo $errors->first('title', ':message'); ?>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control" name="title" id="title"
-                                                placeholder="Enter the Title"
-                                                value="@if (old('title')) {{ old('title') }}@else{{ $editData->title }} @endif">
-                                            <label class="error py-2" for="title" id="title_error"></label>
-                                            @if ($errors->has('title'))
-                                                <span class="red-text"><?php echo $errors->first('title', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="image">Image</label>
-                                            <input type="file" name="image" class="form-control mb-2"
-                                                id="english_image" accept="image/*" placeholder="image">
-                                            @if ($errors->has('image'))
-                                                <span class="red-text"><?php echo $errors->first('image', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                        <img id="english"
-                                            src="{{ Config::get('DocumentConstant.SERVICES_VIEW') }}{{ $editData->image }}"
-                                            class="img-fluid img-thumbnail" width="150">
-                                        <img id="english_imgPreview" src="#"
-                                            alt=" {{ strip_tags($editData['title']) }} Image"
-                                            class="img-fluid img-thumbnail" width="150" style="display:none">
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group" id="summernote_id">
-                                            <label for="short_description">Short Description</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <span class="summernote1">
-                                                <textarea class="form-control" name="short_description" id="short_description" placeholder="Enter the Description">@if (old('short_description')){{ old('short_description') }}@else{{ $editData->short_description }}@endif</textarea>
-                                            </span>
-                                            @if ($errors->has('short_description'))
-                                                <span class="red-text"><?php echo $errors->first('short_description', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group" id="summernote_id">
-                                            <label for="long_description">Long Description</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <span class="summernote1">
-                                                <textarea class="form-control" name="long_description" id="long_description" placeholder="Enter the Long Description">@if (old('long_description')){{ old('long_description') }}@else{{ $editData->long_description }}@endif</textarea>
-                                            </span>
-                                            @if ($errors->has('long_description'))
-                                                <span class="red-text"><?php echo $errors->first('long_description', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
-                                            Save &amp; Update
-                                        </button>
-                                        {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
-                                        <span><a href="{{ route('list-service-details') }}"
-                                                class="btn btn-sm btn-primary ">Back</a></span>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="id" id="id" class="form-control"
-                                    value="{{ $editData->id }}" placeholder="">
-                                {{-- <input type="text" name="currentMarathiImage" id="currentMarathiImage"
-                                    class="form-control" value="" placeholder=""> --}}
-                            </form>
-                        </div>
-                    </div>
+                      </option>
+                      @endforeach
+                    </select>
+                    @if ($errors->has('title'))
+                    <span class="red-text">
+                      <?php echo $errors->first('title', ':message'); ?>
+                    </span>
+                    @endif
+                  </div>
                 </div>
-            </div>
-        </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label for="title">Title </label>&nbsp<span class="red-text">*</span>
+                    <input class="form-control" name="title" id="title" placeholder="Enter the Title"
+                      value="@if (old('title')) {{ old('title') }}@else{{ $editData->title }} @endif">
+                    <label class="error py-2" for="title" id="title_error"></label>
+                    @if ($errors->has('title'))
+                    <span class="red-text"><?php echo $errors->first('title', ':message'); ?></span>
+                    @endif
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" class="form-control mb-2" id="english_image" accept="image/*"
+                      placeholder="image">
+                    @if ($errors->has('image'))
+                    <span class="red-text"><?php echo $errors->first('image', ':message'); ?></span>
+                    @endif
+                  </div>
+                  <img id="english"
+                    src="{{ Config::get('DocumentConstant.PRODUCT_DETAILS_VIEW') }}{{ $editData->image }}"
+                    class="img-fluid img-thumbnail" width="150">
+                  <img id="english_imgPreview" src="#" alt=" {{ strip_tags($editData['title']) }} Image"
+                    class="img-fluid img-thumbnail" width="150" style="display:none">
+                </div>
 
-        {{-- <script>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="form-group" id="summernote_id">
+                    <label for="short_description">Short Description</label>&nbsp<span class="red-text">*</span>
+                    <span class="summernote1">
+                      <textarea class="form-control" name="short_description" id="short_description"
+                        placeholder="Enter the Description">@if (old('short_description')){{ old('short_description') }}@else{{ $editData->short_description }}@endif</textarea>
+                    </span>
+                    @if ($errors->has('short_description'))
+                    <span class="red-text"><?php echo $errors->first('short_description', ':message'); ?></span>
+                    @endif
+                  </div>
+                </div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="form-group" id="summernote_id">
+                    <label for="long_description">Long Description</label>&nbsp<span class="red-text">*</span>
+                    <span class="summernote1">
+                      <textarea class="form-control" name="long_description" id="long_description"
+                        placeholder="Enter the Long Description">@if (old('long_description')){{ old('long_description') }}@else{{ $editData->long_description }}@endif</textarea>
+                    </span>
+                    @if ($errors->has('long_description'))
+                    <span class="red-text"><?php echo $errors->first('long_description', ':message'); ?></span>
+                    @endif
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center">
+                  <button type="submit" class="btn btn-sm btn-success" id="submitButton">
+                    Save &amp; Update
+                  </button>
+                  {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
+                  <span><a href="{{ route('list-our-products-details') }}"
+                      class="btn btn-sm btn-primary ">Back</a></span>
+                </div>
+              </div>
+              <input type="hidden" name="id" id="id" class="form-control" value="{{ $editData->id }}" placeholder="">
+              {{-- <input type="text" name="currentMarathiImage" id="currentMarathiImage"
+                                    class="form-control" value="" placeholder=""> --}}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{-- <script>
             $(document).ready(function () {
                 var currentEnglishImage = $("#currentEnglishImage").val();
         
@@ -227,4 +224,4 @@
                 });
             });
         </script> --}}
-    @endsection
+  @endsection

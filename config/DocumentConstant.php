@@ -39,6 +39,10 @@ return [
     'OUR_RESULT_ADD'	         => "/all_web_data/images/ourresult/",
     'OUR_RESULT_DELETE'	         => '/all_web_data/images/ourresult/',
     'OUR_RESULT_VIEW'	         => env("FILE_VIEW").'/all_web_data/images/ourresult/',
-    
+
+    'PRODUCT_DETAILS_VIEW'=> env("FILE_VIEW").'/all_web_data/images/productdetails/',
+    'PRODUCT_DELETE'=>"/all_web_data/images/productdetails/",
+    'PRODUCT_ADD'=>'/all_web_data/images/productdetails/',
+
     'DB_BACKUP'	 => "/all_web_data/DBBackup//",
 ];

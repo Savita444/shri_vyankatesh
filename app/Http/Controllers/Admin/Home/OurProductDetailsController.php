@@ -110,7 +110,7 @@ $messages = [
     }
 
     public function edit(Request $request){
-        $data = ProductDetails::where('is_active', true)->get();
+        $data = OurProductModel::where('is_active', true)->get();
         $edit_data_id = base64_decode($request->edit_id);
         $editData = $this->product->getById($edit_data_id);
         
