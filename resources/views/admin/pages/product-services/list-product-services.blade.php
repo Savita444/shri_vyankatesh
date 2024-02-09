@@ -5,17 +5,15 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    About Us
-                  
-                        <a href="{{ route('add-aboutus') }}" class="btn btn-sm btn-primary ml-3">+
-                            Add</a>
-                
+                    Services List
+                    <a href="{{ route('add-product-services') }}" class="btn btn-sm btn-primary ml-3">+
+                        Add</a>
 
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-aboutus') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> About Us</li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-product-services') }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Services List</li>
                     </ol>
                 </nav>
             </div>
@@ -31,8 +29,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Name</th>
-                                                    <th>Description</th>
+                                                    <th>Title</th>
+                                                    <th>Image</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -41,8 +39,11 @@
                                                 @foreach ($getOutput as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ strip_tags($item->video_link) }}</td>
-                                                        <td>{{ strip_tags($item->description) }}</td>
+                                                        <td>{{ strip_tags($item->title) }}</td>
+                                                        <td> <img class="img-size"
+                                                                src="{{ Config::get('DocumentConstant.SERVICES_VIEW') }}{{ $item->image }}"
+                                                                alt=" {{ strip_tags($item['title']) }} Image" />
+                                                        </td>
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"
@@ -50,27 +51,24 @@
                                                                     class="active-btn btn btn-sm btn-outline-primary m-1"
                                                                     data-toggle="tooltip" data-placement="top"
                                                                     title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                                <span class="slider round "></span>
+                                                                <span class="slider round"></span>
                                                             </label>
 
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">
-                                                               
-                                                                    <a
-                                                                        href="{{ route('edit-aboutus', base64_encode($item->id)) }}"
-                                                                        class="btn btn-sm btn-outline-primary m-1"
-                                                                        title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                             
+                                                                <a href="{{ route('edit-product-services', base64_encode($item->id)) }}"
+                                                                    class="btn btn-sm btn-outline-primary m-1"
+                                                                    title="Edit Slide"><i
+                                                                        class="fas fa-pencil-alt"></i></a>
 
-                                                               <a data-id="{{ $item->id }}"
+                                                                <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"
-                                                                    title="Show"><i class="fas fa-eye"></i></a>
-                                                               
-                                                                    <a data-id="{{ $item->id }}"
-                                                                        class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                        title="Delete"><i class="fas fa-archive"></i></a>
-                                                              
+                                                                    title="Show Slide "><i class="fas fa-eye"></i></a>
+
+                                                                <a data-id="{{ $item->id }}"
+                                                                    class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                                    title="Delete Slide"><i class="fas fa-archive"></i></a>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -86,16 +84,18 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-aboutus') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-product-services') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-aboutus') }}" id="showform">
+        <form method="POST" action="{{ url('/show-product-services') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/update-active-aboutus') }}" id="activeform">
+        <form method="POST" action="{{ url('/update-active-product-services') }}" id="activeform">
             @csrf
             <input type="hidden" name="active_id" id="active_id" value="">
         </form>
+
+        <!-- content-wrapper ends -->
     @endsection

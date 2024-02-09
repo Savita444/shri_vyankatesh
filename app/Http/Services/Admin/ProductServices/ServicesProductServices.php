@@ -1,17 +1,17 @@
 <?php
-namespace App\Http\Services\Admin\Home;
-use App\Http\Repository\Admin\Home\AboutUsRepository;
+namespace App\Http\Services\Admin\ProductServices;
+use App\Http\Repository\Admin\ProductServices\ServicesRepository;
 use Carbon\Carbon;
 use App\Models\ {
-    Product
+    ProductServices
     };
 
 use Config;
-class AboutUsServices
+class ServicesProductServices
 {
 	protected $repo;
     public function __construct(){
-        $this->repo = new AboutUsRepository();
+        $this->repo = new ServicesRepository();
     }
     public function getAll(){
         try {
@@ -23,7 +23,7 @@ class AboutUsServices
     public function addAll($request){
         try {
             $last_id = $this->repo->addAll($request);
-            $path = Config::get('DocumentConstant.PRODUCT_ADD');
+            $path = Config::get('DocumentConstant.SERVICES_ADD');
             $ImageName = $last_id['ImageName'];
             uploadImage($request, 'image', $path, $ImageName);
            
@@ -47,12 +47,12 @@ class AboutUsServices
     public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
-            
-            $path = Config::get('DocumentConstant.PRODUCT_ADD');
+          
+            $path = Config::get('DocumentConstant.SERVICES_ADD');
             if ($request->hasFile('image')) {
                 if ($return_data['image']) {
-                    if (file_exists_view(Config::get('DocumentConstant.PRODUCT_DELETE') . $return_data['image'])) {
-                        removeImage(Config::get('DocumentConstant.PRODUCT_DELETE') . $return_data['image']);
+                    if (file_exists_view(Config::get('DocumentConstant.SERVICES_DELETE') . $return_data['image'])) {
+                        removeImage(Config::get('DocumentConstant.SERVICES_DELETE') . $return_data['image']);
                     }
 
                 }
@@ -66,9 +66,10 @@ class AboutUsServices
                 }                
                 // $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_image.' . $request->image->extension();
                 uploadImage($request, 'image', $path, $englishImageName);
-                $aboutus_data = Product::find($return_data['last_insert_id']);
+                $aboutus_data = ProductServices::find($return_data['last_insert_id']);
                 $aboutus_data->image = $englishImageName;
                 $aboutus_data->save();
+              
             }          
             if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Data Updated Successfully.'];

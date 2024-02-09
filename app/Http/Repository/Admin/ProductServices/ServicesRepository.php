@@ -1,33 +1,41 @@
 <?php
-namespace App\Http\Repository\Admin\Home;
+namespace App\Http\Repository\Admin\ProductServices;
 use Illuminate\Database\QueryException;
 use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-    AboutUs
+    ProductServices
 };
 use Config;
 
-class AboutUsRepository  {
+class ServicesRepository  {
 
     public function getAll(){
         try {
-            $data_output = AboutUs::orderBy('updated_at', 'desc')->get();
+            $data_output = ProductServices::orderBy('updated_at', 'desc')->get();
             return $data_output;
         } catch (\Exception $e) {
             return $e;
         }
     }
-
-    public function addAll($request){
+     public function addAll($request){
         try {
-            $dataOutput = new AboutUs();
-            $dataOutput->video_link  = $request['video_link'];
-            $dataOutput->description  = $request['description'];
-            $dataOutput->save();       
-              
-            return $dataOutput;
+            $data =array();
+            $dataOutput = new ProductServices();
+            $dataOutput->title = $request['title'];
+        
+            $dataOutput->save(); 
+            $last_insert_id = $dataOutput->id;
+
+            $ImageName = $last_insert_id .'_' . rand(100000, 999999) . '_image.' . $request->image->extension();
+            
+            $finalOutput = ProductServices::find($last_insert_id); // Assuming $request directly contains the ID
+            $finalOutput->image = $ImageName; // Save the image filename to the database
+            $finalOutput->save();
+            
+            $data['ImageName'] =$ImageName;
+            return $data;
 
         } catch (\Exception $e) {
             return [
@@ -36,11 +44,9 @@ class AboutUsRepository  {
             ];
         }
     }
-
-   
     public function getById($id){
         try {
-            $dataOutputByid = AboutUs::find($id);
+            $dataOutputByid = ProductServices::find($id);
             if ($dataOutputByid) {
                 return $dataOutputByid;
             } else {
@@ -54,39 +60,41 @@ class AboutUsRepository  {
             ];
         }
     }
-
     public function updateAll($request){
         try {
-            $dataOutput = AboutUs::find($request->id);
-            
+            $return_data = array();
+            $dataOutput = ProductServices::find($request->id);
+
             if (!$dataOutput) {
                 return [
-                    'msg' => ' Data not found.',
+                    'msg' => 'Update Data not found.',
                     'status' => 'error'
                 ];
             }
-        // Store the previous image names
-            $dataOutput->video_link = $request['video_link'];
-            $dataOutput->description  = $request['description'];
+            // Store the previous image names
+            $previousEnglishImage = $dataOutput->image;
 
-            $dataOutput->save();        
+            // Update the fields from the request
+            $dataOutput->title = $request['title'];
+            
+            $dataOutput->save();
+            $last_insert_id = $dataOutput->id;
+
+            $return_data['last_insert_id'] = $last_insert_id;
+            $return_data['image'] = $previousEnglishImage;
+            return  $return_data;
         
-            return [
-                'msg' => 'Data updated successfully.',
-                'status' => 'success'
-            ];
         } catch (\Exception $e) {
-            return $e;
             return [
-                'msg' => 'Failed to update Data.',
-                'status' => 'error'
+                'msg' => 'Failed to Update Data.',
+                'status' => 'error',
+                'error' => $e->getMessage() // Return the error message for debugging purposes
             ];
         }
     }
-   
     public function updateOne($request){
         try {
-            $updateOutput = AboutUs::find($request); // Assuming $request directly contains the ID
+            $updateOutput = ProductServices::find($request); // Assuming $request directly contains the ID
 
             // Assuming 'is_active' is a field in the model
             if ($updateOutput) {
@@ -113,10 +121,10 @@ class AboutUsRepository  {
     }
     public function deleteById($id){
             try {
-                $deleteDataById = AboutUs::find($id);
+                $deleteDataById = ProductServices::find($id);
                 if ($deleteDataById) {
-                    if (file_exists_view(Config::get('DocumentConstant.AboutUs_DELETE') . $deleteDataById->image)){
-                        removeImage(Config::get('DocumentConstant.AboutUs_DELETE') . $deleteDataById->image);
+                    if (file_exists_view(Config::get('DocumentConstant.SERVICES_DELETE') . $deleteDataById->image)){
+                        removeImage(Config::get('DocumentConstant.SERVICES_DELETE') . $deleteDataById->image);
                     }
                     $deleteDataById->delete();
                     

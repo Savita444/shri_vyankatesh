@@ -20,7 +20,7 @@
                             <form class="forms-sample" action="{{ route('add-media') }}" method="POST"
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
-                                <div class="row">
+                                <div class="row d-flex justify-content-center">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="image">Image </label>&nbsp<span class="red-text">*</span><br>
@@ -53,13 +53,7 @@
                 function checkFormValidity() {
                     const image = $('#image').val();                    
                 }
-                // Custom validation method to check file extension
-                $.validator.addMethod("fileExtension", function(value, element, param) {
-                    // Get the file extension
-                    const extension = value.split('.').pop().toLowerCase();
-                    return $.inArray(extension, param) !== -1;
-                }, "Invalid file extension.");
-
+                
                 // Custom validation method to check file size
                 $.validator.addMethod("fileSize", function(value, element, param) {
                     // Convert bytes to KB
@@ -71,7 +65,15 @@
                 $('#image').attr('accept', 'image/jpeg, image/png');
 
                 // Call the checkFormValidity function on input change
-                $('input, #image').on('input change', checkFormValidity);
+                $('input, textarea, #image').on('input change', checkFormValidity);
+                $.validator.addMethod("spcenotallow", function(value, element) {
+                    if ("select" === element.nodeName.toLowerCase()) {
+                        var e = $(element).val();
+                        return e && e.length > 0;
+                    }
+                    return this.checkable(element) ? this.getLength(value, element) > 0 : value.trim().length >
+                        0;
+                }, "Enter Some Text");
 
                 // Initialize the form validation
                 $("#regForm").validate({
@@ -79,14 +81,16 @@
                         image: {
                             required: true,
                             fileExtension: ["jpg", "jpeg", "png"],
-                            // fileSize: [10, 2048], // Min 10KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [50, 1048], // Min 10KB and Max 2MB (2 * 1024 KB)
+                            imageDimensions: [200, 200, 1000, 1000], // Min width x height and Max width x height
                         },
                     },
                     messages: {
                         image: {
                             required: "Please upload an Image (jpg, jpeg, png).",
-                            fileExtension: "Only jpg, JPEG, and png images are allowed.",
-                            // fileSize: "File size must be between 10 KB and 2 MB.",
+                            fileExtension: "Only JPG, JPEG, and PNG images are allowed.",
+                            fileSize: "File size must be between 50 KB and 1048 KB.",
+                            imageDimensions: "Image dimensions must be between 200x200 and 1000x1000 pixels.",
                         },
                     },
                 });

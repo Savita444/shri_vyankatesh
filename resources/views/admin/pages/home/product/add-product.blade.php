@@ -42,7 +42,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group" id="summernote_id">
                                             <label for="description">Description <span class="red-text">*</span></label>
                                             <textarea class="form-control" name="description" id="description" placeholder="Enter Page Content">{{ old('description') }}</textarea>
@@ -116,8 +116,8 @@
                         image: {
                             required: true,
                             fileExtension: ["jpg", "jpeg", "png"],
-                            fileSize: [5, 200], // Min 10KB and Max 2MB (2 * 1024 KB)
-                            imageDimensions: [50, 50, 800, 800], // Min width x height and Max width x height
+                            fileSize: [50, 1048], // Min 10KB and Max 2MB (2 * 1024 KB)
+                            imageDimensions: [300, 1000, 1000, 2000], // Min width x height and Max width x height
                         },
                     },
                     messages: {
@@ -131,8 +131,8 @@
                         image: {
                             required: "Please upload an Image (jpg, jpeg, png).",
                             fileExtension: "Only JPG, JPEG, and PNG images are allowed.",
-                            fileSize: "File size must be between 10 KB and 150 KB.",
-                            imageDimensions: "Image dimensions must be between 100x100 and 800x800 pixels.",
+                            fileSize: "File size must be between 50 KB and 1048 KB.",
+                            imageDimensions: "Image dimensions must be between 300x1000 and 1000x2000 pixels.",
                         },
                     },
                 });

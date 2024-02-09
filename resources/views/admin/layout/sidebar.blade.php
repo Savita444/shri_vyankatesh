@@ -66,30 +66,29 @@
             </div>
         </li>
      
-        <li class="{{request()->is('list-application-form*') 
+
+        <li class="{{request()->is('list-vision-mission*') 
             ? 'nav-item active' : 'nav-item' }}">
-            <a class="nav-link" data-toggle="collapse" href="#adminssion" aria-expanded="false" aria-controls="master">
-                <i class="fas fa-file-alt menu-icon"></i>
-                <span class="menu-title">Admission</span>
+            <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false" aria-controls="home">
+                <i class="fas fa-bars menu-icon"></i>
+                <span class="menu-title">About</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="adminssion">
+            <div class="collapse" id="home">
                 <ul class="nav flex-column sub-menu">
-
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link active"
-                            href="{{ route('list-application-form') }}">Admission Form</a></li>
                     <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                            href="{{ route('list-scolarship-form') }}">Scolarship</a></li>
-
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                            href="{{ route('list-fesspayment-form') }}">Fees Payment</a>
-
-                    </li>
-
+                            href="{{ route('list-vision-mission') }}">Vision Mission</a></li>
+                          
                 </ul>
             </div>
         </li>
-      
+                <li class="{{request()->is('list-product-services*') 
+            ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link" href="{{ route('list-product-services') }}">
+                <i class="fas fa-newspaper menu-icon"></i>
+                <span class="menu-title">Product Services</span>
+            </a>
+        </li>
         <li class="{{request()->is('list-media*') 
             ? 'nav-item active' : 'nav-item' }}">
             <a class="nav-link" href="{{ route('list-media') }}">

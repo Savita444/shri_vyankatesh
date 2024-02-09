@@ -112,9 +112,23 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-contactus-form', ['as' => 'show-contactus-form', 'uses' => 'App\Http\Controllers\Admin\ContactUs\ContactUsListController@show']);
     Route::post('/delete-contactus-form', ['as' => 'delete-contactus-form', 'uses' => 'App\Http\Controllers\Admin\ContactUs\ContactUsListController@destroy']);
 
-
-
-
+    // vision-mission
+    Route::get('/list-vision-mission', ['as' => 'list-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@index']);
+    Route::get('/add-vision-mission', ['as' => 'add-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@add']);
+    Route::post('/add-vision-mission', ['as' => 'add-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@store']);
+    Route::get('/edit-vision-mission/{edit_id}', ['as' => 'edit-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@edit']);
+    Route::post('/update-vision-mission', ['as' => 'update-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@update']);
+    Route::post('/show-vision-mission', ['as' => 'show-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@show']);
+   
+    // ==============media============
+    Route::get('/list-product-services', ['as' => 'list-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@index']);
+    Route::get('/add-product-services', ['as' => 'add-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@add']);
+    Route::post('/add-product-services', ['as' => 'add-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@store']);
+    Route::get('/edit-product-services/{edit_id}', ['as' => 'edit-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@edit']);
+    Route::post('/update-product-services', ['as' => 'update-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@update']);
+    Route::post('/show-product-services', ['as' => 'show-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@show']);
+    Route::post('/delete-product-services', ['as' => 'delete-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@destroy']);
+    Route::post('/update-active-product-services', ['as' => 'update-active-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@updateOne']);
 
 
 

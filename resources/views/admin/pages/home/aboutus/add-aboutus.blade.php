@@ -4,13 +4,13 @@
     <div class="main-panel">
         <div class="content-wrapper mt-6">
             <div class="page-header">
-                <h3 class="page-Name">
-                    aboutus
+                <h3 class="page-title">
+                    About Us
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-aboutus') }}">Master</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Services</li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-aboutus') }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> About Us</li>
                     </ol>
                 </nav>
             </div>
@@ -21,8 +21,8 @@
                             <form class="forms-sample" action="{{ url('add-aboutus') }}" method="POST"
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <div class="form-group">
                                             <label for="video_link">Video Link</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control mb-2" name="video_link" id="video_link"
@@ -32,7 +32,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <div class="form-group" id="summernote_id">
                                             <label for="description">Description <span class="red-text">*</span></label>
                                             <textarea class="form-control" name="description" id="description" placeholder="Enter Page Content">{{ old('description') }}</textarea>
@@ -60,7 +60,8 @@
             $(document).ready(function() {
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
-                    const video_link = $('#video_link').val();                    
+                    const video_link = $('#video_link').val();  
+                    const description = $('#description').val();                    
                 }
                 // Call the checkFormValidity function on input change
                 $('input').on('input change', checkFormValidity);
@@ -79,10 +80,18 @@
                             required: true,
                             spcenotallow: true,
                         },
+                        description: {
+                            required: true,
+                            spcenotallow: true,
+                        },
                     },
                     messages: {
                         video_link: {
-                            required: "Please Enter the Name",
+                            required: "Please Enter the video link",
+                            spcenotallow: "Enter Some Text",
+                        },
+                        description: {
+                            required: "Please Enter the description",
                             spcenotallow: "Enter Some Text",
                         },
                     },
