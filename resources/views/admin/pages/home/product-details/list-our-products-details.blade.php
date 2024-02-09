@@ -5,7 +5,7 @@
     <div class="content-wrapper mt-7">
         <div class="page-header">
             <h3 class="page-title">
-                Our Service List
+                Our Product List
                 <a href="{{ route('add-our-products-details') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
 
@@ -13,7 +13,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('list-our-products-details') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Our Service List</li>
+                    <li class="breadcrumb-item active" aria-current="page">Our Product List</li>
                 </ol>
             </nav>
         </div>
@@ -66,7 +66,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="{{ route('edit-service-details', base64_encode($item->id)) }}"
+                                                        <a href="{{ route('edit-our-products-details', base64_encode($item->id)) }}"
                                                             class="btn btn-sm btn-outline-primary m-1"
                                                             title="Edit Slide"><i class="fas fa-pencil-alt"></i></a>
 

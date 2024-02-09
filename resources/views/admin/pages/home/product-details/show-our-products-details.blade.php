@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Our Services
+                                Our Product
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-service-details') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-our-products-details') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
 

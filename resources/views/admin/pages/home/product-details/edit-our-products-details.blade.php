@@ -5,12 +5,12 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                    Our Service
+                    Our Product
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('list-service-details') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update Our Service</li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-our-products-details') }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Update Our Product</li>
                     </ol>
                 </nav>
             </div>
@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action="{{ route('update-service-details') }}" method="post"
+                            <form class="forms-sample" action="{{ route('update-our-products-details') }}" method="post"
                                 id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -103,7 +103,7 @@
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
-                                        <span><a href="{{ route('list-service-details') }}"
+                                        <span><a href="{{ route('list-our-products-details') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>

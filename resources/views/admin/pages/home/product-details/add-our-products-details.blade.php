@@ -3,39 +3,23 @@
 @section('content')
 
 <head>
-    <style>
-        /* Custom CSS for the button */
-        .btn-secondary {
-            background-color: grey;
-            /* Set button background color */
-            border-color: #007bff;
-            /* Set button border color */
-        }
-
-        /* Custom CSS for the dropdown menu */
-        .dropdown-menu {
-            background-color: #343a40;
-            /* Set dropdown menu background color */
-        }
-
-        .dropdown-item {
-            color: #ffffff;
-            /* Set dropdown item text color */
-        }
-    </style>
 </head>
 <div class="main-panel">
     <div class="content-wrapper mt-6">
         <div class="page-header">
-            <h3 class="page-title">Our Services
+            <h3 class="page-title">Our Product
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('list-our-products-details') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Our Services </li>
+                    <li class="breadcrumb-item active" aria-current="page"> Our Product </li>
                 </ol>
             </nav>
         </div>
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
         <form class="forms-sample" action="{{ route('add-our-products-details') }}" method="POST" enctype="multipart/form-data"
             id="regForm">
             @csrf
@@ -111,6 +95,10 @@
                 </div>
             </div>
         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </div>
