@@ -52,6 +52,7 @@
             </a>
             <div class="collapse" id="home">
                 <ul class="nav flex-column sub-menu">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('list-animated-video') }}">Animated Video</a></li>
                     <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('list-aboutus') }}">About Us</a></li>
                     <li class="nav-item d-none d-lg-block"><a class="nav-link"
                             href="{{ route('list-product') }}">Product</a></li>

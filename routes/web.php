@@ -43,6 +43,17 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-aboutus', ['as' => 'delete-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@destroy']);
     Route::post('/update-active-aboutus', ['as' => 'update-active-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@updateOne']);
   
+
+    Route::get('/list-animated-video', ['as' => 'list-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@index']);
+    Route::get('/add-animated-video', ['as' => 'add-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@add']);
+    Route::post('/add-animated-video', ['as' => 'add-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@store']);
+    Route::get('/edit-animated-video/{edit_id}', ['as' => 'edit-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@edit']);
+    Route::post('/update-animated-video', ['as' => 'update-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@update']);
+    Route::post('/show-animated-video', ['as' => 'show-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@show']);
+    Route::post('/delete-animated-video', ['as' => 'delete-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@destroy']);
+    Route::post('/update-active-animated-video', ['as' => 'update-active-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@updateOne']);
+  
+
   // =============Product============
   Route::get('/list-product', ['as' => 'list-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@index']);
   Route::get('/add-product', ['as' => 'add-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@add']);
