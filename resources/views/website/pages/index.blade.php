@@ -8,20 +8,20 @@
       <!-- ------------------------------------------------------------------------------------>
       <section class="HomeAboutSection pb-4">
         <div class="container">
-          <div class="row">
-            <h4 class="text-center HomeAbout heading">About Us</h4>
-            <div class="col-lg-5 mx-auto HomeAboutRow">
-              <div class="aboutVideoMain">
+          <h4 class="text-center HomeAbout heading">About Us</h4>
+          <div class="row justify-content-center">
+            <div class="col-lg-5 HomeAboutRow aboutVideoMain">
+              <div class="">
                 <div class="aboutVideo">
-                  <video class="videoSize" controls>
+                  <video class="videoSize" autoplay loop muted playsinline class="videoBanner">
                     <source src="{{ asset('website/assets/images/home/aboutVideo.mp4') }}" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
               </div>
             </div>
-            <div class="col-lg-7">
-              <p class="pText">
+            <div class="col-lg-7 d-flex align-items-center bg-white">
+              <p class="pText ms-md-5 pt-md-4 py-md-1 pe-md-3">
                 SVI Carbon Private Limited (SVICPL) is an ISO 9001:2015 certified
                 company, engaged in designing (both process and mechanical) and
                 manufacturing Impervious Graphite Heat and Mass Transfer
@@ -31,21 +31,11 @@
                 Bursting/Rupture Discs, Graphite Thermowells and Customized
                 Graphite Products and Spares as per the client’s requirement.
                 These are manufactured using superior quality of Graphite, Resin
-                and Steel, due to which, these products are acknowledged for their
-                long trouble-free operation, excellent heat transfer capacity and
-                durability. These are widely used by various sectors such as API,
-                Bulk Drugs, Fine Chemicals, Specialty Chemicals, Agro-chemical,
-                Pharmaceutical, Chloral-Caustic, Cold rolling mills and steel
-                manufacturers. Company has a sound foundation of well-maintained
-                and technically advanced infrastructure. Our manufacturing
-                facilities are controlled by technocrats who have extensive
-                experience in the graphite equipment industry.
+                and Steel, due to which, these products are acknowledged.
               </p>
             </div>
-            <div class="HomeAboutBtnDiv">
-              <button class="btn HomeAboutBtn">
-                <a href="{{ asset('website/assets/images/home/about.html')}}" class="text-decoration-none text-white">View More </a>
-              </button>
+            <div class="HomeAboutButton1 text-md-end mt-md-3 ">
+                <a href="{{ asset('website/assets/images/home/about.html')}}" type="button" class="text-decoration-none HomeAboutButton text-white">View More </a>
             </div>
           </div>
         </div>

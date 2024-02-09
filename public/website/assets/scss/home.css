@@ -1,7 +1,7 @@
 .aboutVideoMain {
-    height: 200px;
+    height: 240px;
     width: 300px;
-    transform: translate(30px, 30px);
+    transform: translate(0px, 0px);
     background: linear-gradient(
         180deg,
         #332ba2 0%,
@@ -9,14 +9,15 @@
     );
 }
 .videoSize {
-    height: 250px;
-    width: 350px;
+    height: 260px;
+    width: 390px;
+    object-fit: cover;
 }
 .HomeAboutRow {
-    height: 450px;
+    height: 315px;
 }
 .aboutVideo {
-    transform: translate(30px, 5px);
+    transform: translate(30px, 40px);
 }
 .HomeAbout {
     color: #224677;
@@ -24,16 +25,19 @@
 .HomeAboutSection {
     background: #f4f4f4;
 }
+.HomeAboutCol1 {
+    background: linear-gradient(
+        90deg,
+        #f4f4f4 0%,
+        rgba(255, 255, 255, 0.99) 100%
+    );
+}
 .pText {
     text-align: justify;
     font-size: 0.8rem;
 }
-.HomeAboutBtn {
+.HomeAboutButton{
     background: #332ba2;
-    float: right;
-    width: auto;
-    color: white;
-    text-align: end;
 }
 .cardBodyCoreComp {
     height: 5rem;
