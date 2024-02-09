@@ -5,7 +5,7 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    aboutus
+                    About Us
                   
                         <a href="{{ route('add-aboutus') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
@@ -14,8 +14,8 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-aboutus') }}">Master</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> aboutus</li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-aboutus') }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> About Us</li>
                     </ol>
                 </nav>
             </div>
@@ -32,15 +32,17 @@
                                                 <tr>
                                                     <th>Sr. No.</th>
                                                     <th>Name</th>
+                                                    <th>Description</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($incidenttype_data as $item)
+                                                @foreach ($getOutput as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ strip_tags($item->service_name) }}</td>
+                                                        <td>{{ strip_tags($item->video_link) }}</td>
+                                                        <td>{{ strip_tags($item->description) }}</td>
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"

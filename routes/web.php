@@ -33,16 +33,6 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/website-contact', ['as' => 'website-contact', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateProfile']);
 
-
-    Route::get('/list-location-address', ['as' => 'list-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@index']);
-    Route::get('/add-location-address', ['as' => 'add-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@add']);
-    Route::post('/add-location-address', ['as' => 'add-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@store']);
-    Route::get('/edit-location-address/{edit_id}', ['as' => 'edit-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@edit']);
-    Route::post('/update-location-address', ['as' => 'update-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@update']);
-    Route::post('/show-location-address', ['as' => 'show-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@show']);
-    Route::post('/delete-location-address', ['as' => 'delete-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@destroy']);
-    Route::post('/update-one-location-address', ['as' => 'update-one-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@updateOne']);
-
 // =============About Us============
     Route::get('/list-aboutus', ['as' => 'list-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@index']);
     Route::get('/add-aboutus', ['as' => 'add-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@add']);
@@ -53,6 +43,17 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-aboutus', ['as' => 'delete-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@destroy']);
     Route::post('/update-active-aboutus', ['as' => 'update-active-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@updateOne']);
   
+
+    Route::get('/list-animated-video', ['as' => 'list-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@index']);
+    Route::get('/add-animated-video', ['as' => 'add-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@add']);
+    Route::post('/add-animated-video', ['as' => 'add-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@store']);
+    Route::get('/edit-animated-video/{edit_id}', ['as' => 'edit-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@edit']);
+    Route::post('/update-animated-video', ['as' => 'update-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@update']);
+    Route::post('/show-animated-video', ['as' => 'show-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@show']);
+    Route::post('/delete-animated-video', ['as' => 'delete-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@destroy']);
+    Route::post('/update-active-animated-video', ['as' => 'update-active-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@updateOne']);
+  
+
   // =============Product============
   Route::get('/list-product', ['as' => 'list-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@index']);
   Route::get('/add-product', ['as' => 'add-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@add']);
@@ -112,6 +113,23 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-contactus-form', ['as' => 'show-contactus-form', 'uses' => 'App\Http\Controllers\Admin\ContactUs\ContactUsListController@show']);
     Route::post('/delete-contactus-form', ['as' => 'delete-contactus-form', 'uses' => 'App\Http\Controllers\Admin\ContactUs\ContactUsListController@destroy']);
 
+    // vision-mission
+    Route::get('/list-vision-mission', ['as' => 'list-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@index']);
+    Route::get('/add-vision-mission', ['as' => 'add-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@add']);
+    Route::post('/add-vision-mission', ['as' => 'add-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@store']);
+    Route::get('/edit-vision-mission/{edit_id}', ['as' => 'edit-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@edit']);
+    Route::post('/update-vision-mission', ['as' => 'update-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@update']);
+    Route::post('/show-vision-mission', ['as' => 'show-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@show']);
+   
+    // ==============media============
+    Route::get('/list-product-services', ['as' => 'list-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@index']);
+    Route::get('/add-product-services', ['as' => 'add-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@add']);
+    Route::post('/add-product-services', ['as' => 'add-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@store']);
+    Route::get('/edit-product-services/{edit_id}', ['as' => 'edit-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@edit']);
+    Route::post('/update-product-services', ['as' => 'update-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@update']);
+    Route::post('/show-product-services', ['as' => 'show-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@show']);
+    Route::post('/delete-product-services', ['as' => 'delete-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@destroy']);
+    Route::post('/update-active-product-services', ['as' => 'update-active-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@updateOne']);
 
 
 

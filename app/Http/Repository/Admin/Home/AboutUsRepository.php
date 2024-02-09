@@ -1,15 +1,16 @@
 <?php
 namespace App\Http\Repository\Admin\Home;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	AboutUs
+    AboutUs
 };
+use Config;
 
-class AboutUsRepository{
+class AboutUsRepository  {
+
     public function getAll(){
         try {
             $data_output = AboutUs::orderBy('updated_at', 'desc')->get();
@@ -19,15 +20,13 @@ class AboutUsRepository{
         }
     }
 
-
-	public function addAll($request){
+    public function addAll($request){
         try {
             $dataOutput = new AboutUs();
             $dataOutput->video_link  = $request['video_link'];
-            $dataOutput->description = $request['description'];
-          
+            $dataOutput->description  = $request['description'];
             $dataOutput->save();       
-                
+              
             return $dataOutput;
 
         } catch (\Exception $e) {
@@ -37,97 +36,97 @@ class AboutUsRepository{
             ];
         }
     }
+
+   
     public function getById($id){
         try {
-            $incidenttype = AboutUs::find($id);
-            if ($incidenttype) {
-                return $incidenttype;
+            $dataOutputByid = AboutUs::find($id);
+            if ($dataOutputByid) {
+                return $dataOutputByid;
             } else {
                 return null;
             }
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to get by Id Course Type.',
+                'msg' => 'Failed to get by id Data.',
                 'status' => 'error'
             ];
         }
     }
+
     public function updateAll($request){
         try {
-            $incidenttype_data = AboutUs::find($request->id);
+            $dataOutput = AboutUs::find($request->id);
             
-            if (!$incidenttype_data) {
+            if (!$dataOutput) {
                 return [
-                    'msg' => 'Course data not found.',
+                    'msg' => ' Data not found.',
                     'status' => 'error'
                 ];
             }
         // Store the previous image names
-            $incidenttype_data->service_name = $request['service_name'];
-            // $incidenttype_data->url = $request['url'];
-            $incidenttype_data->save();        
+            $dataOutput->video_link = $request['video_link'];
+            $dataOutput->description  = $request['description'];
+
+            $dataOutput->save();        
         
             return [
-                'msg' => 'Course Type data updated successfully.',
+                'msg' => 'Data updated successfully.',
                 'status' => 'success'
             ];
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to update Course Type data.',
+                'msg' => 'Failed to update Data.',
                 'status' => 'error'
             ];
         }
     }
-
-    public function deleteById($id) {
-        try {
-            $incidenttype = AboutUs::find($id);
-            if ($incidenttype) {
-                // Delete the images from the storage folder
-                Storage::delete([
-                    'public/images/citizen-action/incidenttype-suggestion/'.$incidenttype->english_image,
-                    'public/images/citizen-action/incidenttype-suggestion/'.$incidenttype->marathi_image
-                ]);
-
-                // Delete the record from the database
-                
-                $incidenttype->delete();
-                
-                return $incidenttype;
-            } else {
-                return null;
-            }
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }
+   
     public function updateOne($request){
         try {
-            $slide = AboutUs::find($request); 
-            if ($slide) {
-                $is_active = $slide->is_active === 1 ? 0 : 1;
-                $slide->is_active = $is_active;
-                $slide->save();
+            $updateOutput = AboutUs::find($request); // Assuming $request directly contains the ID
+
+            // Assuming 'is_active' is a field in the model
+            if ($updateOutput) {
+                $is_active = $updateOutput->is_active === 1 ? 0 : 1;
+                $updateOutput->is_active = $is_active;
+                $updateOutput->save();
+
 
                 return [
-                    'msg' => 'Slide updated successfully.',
+                    'msg' => 'Data Updated Successfully.',
                     'status' => 'success'
                 ];
             }
-
             return [
-                'msg' => 'Slide not found.',
+                'msg' => 'Data not Found.',
                 'status' => 'error'
             ];
         } catch (\Exception $e) {
             return [
-                'msg' => 'Failed to update slide.',
+                'msg' => 'Failed to Update Data.',
                 'status' => 'error'
             ];
         }
     }
-    
-       
+    public function deleteById($id){
+            try {
+                $deleteDataById = AboutUs::find($id);
+                if ($deleteDataById) {
+                    if (file_exists_view(Config::get('DocumentConstant.AboutUs_DELETE') . $deleteDataById->image)){
+                        removeImage(Config::get('DocumentConstant.AboutUs_DELETE') . $deleteDataById->image);
+                    }
+                    $deleteDataById->delete();
+                    
+                    return $deleteDataById;
+                } else {
+                    return null;
+                }
+            } catch (\Exception $e) {
+                return $e;
+            }
+    }
+
 }

@@ -4,13 +4,13 @@
 <div class="main-panel">
   <div class="content-wrapper mt-6">
     <div class="page-header">
-      <h3 class="page-Name">
-        Services
+      <h3 class="page-title">
+        Product Categories
       </h3>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ url('list-product-category') }}">Master</a></li>
-          <li class="breadcrumb-item active" aria-current="page"> Services</li>
+          <li class="breadcrumb-item active" aria-current="page"> Product Categories</li>
         </ol>
       </nav>
     </div>

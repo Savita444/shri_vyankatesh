@@ -32,11 +32,12 @@ class OurProductController extends Controller
     public function store(Request $request) {
 
         $rules = [
-            'product_name' => 'required|max:255',
+            'product_name' => 'required|unique:our_product|max:255',
             // |unique:product_name|regex:/^[a-zA-Z\s]+$/u|max:255',
          ];
         $messages = [   
-            'product_name'       =>  'Please enter title.',
+            'product_name.required'       =>  'Please enter title.',
+            'product_name.unique' => 'Title already exist.',
             // 'product_name.regex' => 'Please  enter text only.',
             // 'product_name.unique' => 'Title already exist.',
         ];
