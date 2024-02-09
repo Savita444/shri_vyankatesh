@@ -33,37 +33,37 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/website-contact', ['as' => 'website-contact', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateProfile']);
 
+// =============About Us============
+    Route::get('/list-aboutus', ['as' => 'list-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@index']);
+    Route::get('/add-aboutus', ['as' => 'add-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@add']);
+    Route::post('/add-aboutus', ['as' => 'add-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@store']);
+    Route::get('/edit-aboutus/{edit_id}', ['as' => 'edit-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@edit']);
+    Route::post('/update-aboutus', ['as' => 'update-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@update']);
+    Route::post('/show-aboutus', ['as' => 'show-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@show']);
+    Route::post('/delete-aboutus', ['as' => 'delete-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@destroy']);
+    Route::post('/update-active-aboutus', ['as' => 'update-active-aboutus', 'uses' => 'App\Http\Controllers\Admin\Home\AboutUsController@updateOne']);
+  
 
+    Route::get('/list-animated-video', ['as' => 'list-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@index']);
+    Route::get('/add-animated-video', ['as' => 'add-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@add']);
+    Route::post('/add-animated-video', ['as' => 'add-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@store']);
+    Route::get('/edit-animated-video/{edit_id}', ['as' => 'edit-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@edit']);
+    Route::post('/update-animated-video', ['as' => 'update-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@update']);
+    Route::post('/show-animated-video', ['as' => 'show-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@show']);
+    Route::post('/delete-animated-video', ['as' => 'delete-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@destroy']);
+    Route::post('/update-active-animated-video', ['as' => 'update-active-animated-video', 'uses' => 'App\Http\Controllers\Admin\Home\AnimatedVideoController@updateOne']);
+  
 
+  // =============Product============
+  Route::get('/list-product', ['as' => 'list-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@index']);
+  Route::get('/add-product', ['as' => 'add-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@add']);
+  Route::post('/add-product', ['as' => 'add-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@store']);
+  Route::get('/edit-product/{edit_id}', ['as' => 'edit-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@edit']);
+  Route::post('/update-product', ['as' => 'update-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@update']);
+  Route::post('/show-product', ['as' => 'show-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@show']);
+  Route::post('/delete-product', ['as' => 'delete-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@destroy']);
+  Route::post('/update-active-product', ['as' => 'update-active-product', 'uses' => 'App\Http\Controllers\Admin\Home\ProductController@updateOne']);
 
-    Route::get('/list-location-address', ['as' => 'list-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@index']);
-    Route::get('/add-location-address', ['as' => 'add-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@add']);
-    Route::post('/add-location-address', ['as' => 'add-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@store']);
-    Route::get('/edit-location-address/{edit_id}', ['as' => 'edit-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@edit']);
-    Route::post('/update-location-address', ['as' => 'update-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@update']);
-    Route::post('/show-location-address', ['as' => 'show-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@show']);
-    Route::post('/delete-location-address', ['as' => 'delete-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@destroy']);
-    Route::post('/update-one-location-address', ['as' => 'update-one-location-address', 'uses' => 'App\Http\Controllers\Admin\Master\LocationAddressController@updateOne']);
-    
-// ==============Slider============
-    Route::get('/list-slide', ['as' => 'list-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@index']);
-    Route::get('/add-slide', ['as' => 'add-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@add']);
-    Route::post('/add-slide', ['as' => 'add-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@store']);
-    Route::get('/edit-slide/{edit_id}', ['as' => 'edit-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@edit']);
-    Route::post('/update-slide', ['as' => 'update-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@update']);
-    Route::post('/show-slide', ['as' => 'show-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@show']);
-    Route::post('/delete-slide', ['as' => 'delete-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@destroy']);
-    Route::post('/update-active-slide', ['as' => 'update-active-slide', 'uses' => 'App\Http\Controllers\Admin\Home\SliderController@updateOne']);
-    
-// =============Courses Offered============
-    Route::get('/list-courses-offered', ['as' => 'list-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@index']);
-    Route::get('/add-courses-offered', ['as' => 'add-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@add']);
-    Route::post('/add-courses-offered', ['as' => 'add-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@store']);
-    Route::get('/edit-courses-offered/{edit_id}', ['as' => 'edit-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@edit']);
-    Route::post('/update-courses-offered', ['as' => 'update-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@update']);
-    Route::post('/show-courses-offered', ['as' => 'show-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@show']);
-    Route::post('/delete-courses-offered', ['as' => 'delete-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@destroy']);
-    Route::post('/update-active-courses-offered', ['as' => 'update-active-courses-offered', 'uses' => 'App\Http\Controllers\Admin\Home\CoursesOfferedController@updateOne']);
     // ============Marquee=============
     Route::get('/list-marquee-tab', ['as' => 'list-marquee-tab', 'uses' => 'App\Http\Controllers\Admin\Master\MarqueeTabController@index']);
     Route::get('/add-marquee-tab', ['as' => 'add-marquee-tab', 'uses' => 'App\Http\Controllers\Admin\Master\MarqueeTabController@add']);
@@ -84,73 +84,16 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-active-courses', ['as' => 'update-active-courses', 'uses' => 'App\Http\Controllers\Admin\Master\CourseController@updateOne']);
 
 
-    // ============marquee=============
-    Route::get('/list-marquee', ['as' => 'list-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@index']);
-    Route::get('/add-marquee', ['as' => 'add-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@add']);
-    Route::post('/add-marquee', ['as' => 'add-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@store']);
-    Route::get('/edit-marquee/{edit_id}', ['as' => 'edit-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@edit']);
-    Route::post('/update-marquee', ['as' => 'update-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@update']);
-    Route::post('/show-marquee', ['as' => 'show-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@show']);
-    Route::post('/delete-marquee', ['as' => 'delete-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@destroy']);
-    Route::post('/update-one_marquee', ['as' => 'update-one_marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@updateOne']);
-
-     // =============upcoming courses============
-     Route::get('/list-upcoming-courses', ['as' => 'list-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@index']);
-     Route::get('/add-upcoming-courses', ['as' => 'add-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@add']);
-     Route::post('/add-upcoming-courses', ['as' => 'add-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@store']);
-     Route::get('/edit-upcoming-courses/{edit_id}', ['as' => 'edit-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@edit']);
-     Route::post('/update-upcoming-courses', ['as' => 'update-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@update']);
-     Route::post('/show-upcoming-courses', ['as' => 'show-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@show']);
-     Route::post('/delete-upcoming-courses', ['as' => 'delete-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@destroy']);
-     Route::post('/update-active-upcoming-courses', ['as' => 'update-active-upcoming-courses', 'uses' => 'App\Http\Controllers\Admin\Home\UpcomingCoursesController@updateOne']);
-     
-    // =============Testimonial============
-    Route::get('/list-testimonial', ['as' => 'list-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@index']);
-    Route::get('/add-testimonial', ['as' => 'add-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@add']);
-    Route::post('/add-testimonial', ['as' => 'add-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@store']);
-    Route::get('/edit-testimonial/{edit_id}', ['as' => 'edit-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@edit']);
-    Route::post('/update-testimonial', ['as' => 'update-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@update']);
-    Route::post('/show-testimonial', ['as' => 'show-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@show']);
-    Route::post('/delete-testimonial', ['as' => 'delete-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@destroy']);
-    Route::post('/update-active-testimonial', ['as' => 'update-active-testimonial', 'uses' => 'App\Http\Controllers\Admin\Home\TestimonialController@updateOne']);
-    
-    
-      Route::get('/list-course-details', ['as' => 'list-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@index']);
-    Route::get('/add-course-details', ['as' => 'add-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@add']);
-    Route::post('/add-course-details', ['as' => 'add-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@store']);
-    Route::get('/edit-course-details/{edit_id}', ['as' => 'edit-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@edit']);
-    Route::post('/update-course-details', ['as' => 'update-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@update']);
-    Route::post('/show-course-details', ['as' => 'show-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@show']);
-    Route::post('/delete-course-details', ['as' => 'delete-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@destroy']);
-    Route::post('/update-active-course-details', ['as' => 'update-active-course-details', 'uses' => 'App\Http\Controllers\Admin\Home\CourseDetailsController@updateOne']);
-    // ==============Gallery============
-    Route::get('/list-gallery', ['as' => 'list-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@index']);
-    Route::get('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@add']);
-    Route::post('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@store']);
-    Route::get('/edit-gallery/{edit_id}', ['as' => 'edit-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@edit']);
-    Route::post('/update-gallery', ['as' => 'update-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@update']);
-    Route::post('/show-gallery', ['as' => 'show-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@show']);
-    Route::post('/delete-gallery', ['as' => 'delete-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@destroy']);
-    Route::post('/update-active-gallery', ['as' => 'update-active-gallery', 'uses' => 'App\Http\Controllers\Admin\Gallery\GalleryController@updateOne']);
-    
-    // ===============Our Result=============
-    Route::get('/list-ourresult-category', ['as' => 'list-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@index']);
-    Route::get('/add-ourresult-category', ['as' => 'add-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@add']);
-    Route::post('/add-ourresult-category', ['as' => 'add-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@store']);
-    Route::get('/edit-ourresult-category/{edit_id}', ['as' => 'edit-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@edit']);
-    Route::post('/update-ourresult-category', ['as' => 'update-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@update']);
-    Route::post('/show-ourresult-category', ['as' => 'show-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@show']);
-    Route::post('/delete-ourresult-category', ['as' => 'delete-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@destroy']);
-    Route::post('/update-one-ourresult-category', ['as' => 'update-one-ourresult-category', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultCategoryController@updateOne']);
-
-    Route::get('/list-ourresult', ['as' => 'list-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@index']);
-    Route::get('/add-ourresult', ['as' => 'add-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@add']);
-    Route::post('/add-ourresult', ['as' => 'add-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@store']);
-    Route::get('/edit-ourresult/{edit_id}', ['as' => 'edit-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@edit']);
-    Route::post('/update-ourresult', ['as' => 'update-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@update']);
-    Route::post('/show-ourresult', ['as' => 'show-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@show']);
-    Route::post('/delete-ourresult', ['as' => 'delete-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@destroy']);
-    Route::post('/update-one-ourresult', ['as' => 'update-one-ourresult', 'uses' => 'App\Http\Controllers\Admin\OurResult\OurResultController@updateOne']);
+ 
+    // ==============media============
+    Route::get('/list-media', ['as' => 'list-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@index']);
+    Route::get('/add-media', ['as' => 'add-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@add']);
+    Route::post('/add-media', ['as' => 'add-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@store']);
+    Route::get('/edit-media/{edit_id}', ['as' => 'edit-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@edit']);
+    Route::post('/update-media', ['as' => 'update-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@update']);
+    Route::post('/show-media', ['as' => 'show-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@show']);
+    Route::post('/delete-media', ['as' => 'delete-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@destroy']);
+    Route::post('/update-active-media', ['as' => 'update-active-media', 'uses' => 'App\Http\Controllers\Admin\Media\MediaController@updateOne']);
 
     // Admission=================
     Route::get('/list-application-form', ['as' => 'list-application-form', 'uses' => 'App\Http\Controllers\Admin\Application\ApplicationListController@index']);
@@ -170,32 +113,50 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-contactus-form', ['as' => 'show-contactus-form', 'uses' => 'App\Http\Controllers\Admin\ContactUs\ContactUsListController@show']);
     Route::post('/delete-contactus-form', ['as' => 'delete-contactus-form', 'uses' => 'App\Http\Controllers\Admin\ContactUs\ContactUsListController@destroy']);
 
-
-    Route::get('/list-gallery-category', ['as' => 'list-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@index']);
-    Route::get('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@add']);
-    Route::post('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@store']);
-    Route::get('/edit-gallery-category/{edit_id}', ['as' => 'edit-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@edit']);
-    Route::post('/update-gallery-category', ['as' => 'update-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@update']);
-    Route::post('/show-gallery-category', ['as' => 'show-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@show']);
-    Route::post('/delete-gallery-category', ['as' => 'delete-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@destroy']);
-    Route::post('/update-one-gallery-category', ['as' => 'update-one-gallery-category', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryCategoryController@updateOne']);
-    
-    Route::get('/list-gallery-main', ['as' => 'list-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@index']);
-    Route::get('/add-gallery-main', ['as' => 'add-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@add']);
-    Route::post('/add-gallery-main', ['as' => 'add-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@store']);
-    Route::get('/edit-gallery-main/{edit_id}', ['as' => 'edit-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@edit']);
-    Route::post('/update-gallery-main', ['as' => 'update-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@update']);
-    Route::post('/show-gallery-main', ['as' => 'show-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@show']);
-    Route::post('/delete-gallery-main', ['as' => 'delete-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@destroy']);
-    Route::post('/update-one-gallery-main', ['as' => 'update-one-gallery-main', 'uses' => 'App\Http\Controllers\Admin\Our\GalleryController@updateOne']);
-    
+    // vision-mission
+    Route::get('/list-vision-mission', ['as' => 'list-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@index']);
+    Route::get('/add-vision-mission', ['as' => 'add-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@add']);
+    Route::post('/add-vision-mission', ['as' => 'add-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@store']);
+    Route::get('/edit-vision-mission/{edit_id}', ['as' => 'edit-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@edit']);
+    Route::post('/update-vision-mission', ['as' => 'update-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@update']);
+    Route::post('/show-vision-mission', ['as' => 'show-vision-mission', 'uses' => 'App\Http\Controllers\Admin\About\VisionMissionController@show']);
+   
+    // ==============media============
+    Route::get('/list-product-services', ['as' => 'list-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@index']);
+    Route::get('/add-product-services', ['as' => 'add-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@add']);
+    Route::post('/add-product-services', ['as' => 'add-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@store']);
+    Route::get('/edit-product-services/{edit_id}', ['as' => 'edit-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@edit']);
+    Route::post('/update-product-services', ['as' => 'update-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@update']);
+    Route::post('/show-product-services', ['as' => 'show-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@show']);
+    Route::post('/delete-product-services', ['as' => 'delete-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@destroy']);
+    Route::post('/update-active-product-services', ['as' => 'update-active-product-services', 'uses' => 'App\Http\Controllers\Admin\ProductServices\ServicesController@updateOne']);
 
 
 
+    // ===============Our Products By Nandan 
 
 
+    Route::get('/list-our-products', ['as' => 'list-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@index']);
+    Route::get('/add-our-products', ['as' => 'add-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@add']);
+    Route::post('/add-our-products', ['as' => 'add-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@store']);
+    Route::get('/edit-our-products/{edit_id}', ['as' => 'edit-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@edit']);
+    Route::post('/update-our-products', ['as' => 'update-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@update']);
+    Route::post('/show-our-products', ['as' => 'show-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@show']);
+    Route::post('/delete-our-products', ['as' => 'delete-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@destroy']);
+    Route::post('/update-active-our-products', ['as' => 'update-active-our-products', 'uses' => 'App\Http\Controllers\Admin\Master\OurProductController@updateOne']);
 
 
+// ===============Our Products Details By Nandan 
+
+
+    Route::get('/list-our-products-details', ['as' => 'list-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@index']);
+    Route::get('/add-our-products-details', ['as' => 'add-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@add']);
+    Route::post('/add-our-products-details', ['as' => 'add-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@store']);
+    Route::get('/edit-our-products-details/{edit_id}', ['as' => 'edit-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@edit']);
+    Route::post('/update-our-products-details', ['as' => 'update-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@update']);
+    Route::post('/show-our-products-details', ['as' => 'show-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@show']);
+    Route::post('/delete-our-products-details', ['as' => 'delete-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@destroy']);
+    Route::post('/update-active-our-products-details', ['as' => 'update-active-our-products-details', 'uses' => 'App\Http\Controllers\Admin\Home\OurProductDetailsController@updateOne']);
 
 
 

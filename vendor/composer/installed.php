@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '2ba9099a4b125a414bbd5ecc2e285005975b21fd',
+        'reference' => '38bb795d1fc58cf6430500dd8444d1fa19f70c0f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -109,6 +109,15 @@
             'reference' => 'ebaaf5be6c0286928352e054f2d5125608e5405e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../egulias/email-validator',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'facade/ignition-contracts' => array(
+            'pretty_version' => '1.0.2',
+            'version' => '1.0.2.0',
+            'reference' => '3c921a1cdba35b68a7f0ccffc6dffc1995b18267',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../facade/ignition-contracts',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -412,7 +421,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2ba9099a4b125a414bbd5ecc2e285005975b21fd',
+            'reference' => '38bb795d1fc58cf6430500dd8444d1fa19f70c0f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -769,8 +778,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0.0 || 2.0.0 || 3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '1.0.0 || 2.0.0 || 3.0.0',
             ),
         ),
         'psr/simple-cache' => array(

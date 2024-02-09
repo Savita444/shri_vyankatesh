@@ -47,7 +47,7 @@
                         <div class="auth-form-transparent text-left p-3">
                             <!--  Brand Logo -->
                             <div class="brand-logo d-flex justify-content-center">
-                                <img src="{{ asset('website/assets/images/logo-two.png') }}" alt="logo">
+                                <img src="{{ asset('website/assets/images/logoadmin.png') }}" class="img-fluid" alt="logo">
                             </div>
                             <!--  Login Form -->
 
